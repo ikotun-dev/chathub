@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<head>
+   <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+   <meta charset="utf-8">
+   <title>Registration Page</title>
+   <style>
+    {% comment %} @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    background: whitesmoke;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.submit {
+    justify-content: center;
+    align-items: center;
+} {% endcomment %}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin-top: 125px;
+  }
+  
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form_title {
+    text-align: center;
+    margin: 0 0 20px 0;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .form div {
+    margin: 10px 0;
+  }
+  
+  .form label {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .form input[type="text"],
+  .form input[type="email"],
+  .form input[type="password"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+  }
+  
+  .form input[type="text"]:focus,
+  .form input[type="email"]:focus {
+    border: 1px solid #555;
+  }
+  
+  button[type="submit"] {
+    width: 100%;
+    background-color: #4caf50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  
+</style>
+
+</head>
+<body>
+   <div class="container">
+       <form action="" class="form" id="login" action="/register" method="post">
+        {% csrf_token %}
+           <h1 class="form_title">Register</h1>
+           <div>
+               <label for="name">Username</label>
+               <input type="text" name="username" id="name" required>
+           </div>
+
+           <div>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="name" required>
+        </div>
+           
+           <button type="submit">Submit</button>
+           <h4>Have an account? </h4><a href="/">login</a>
+       </form>
+
+   </div>
+  
+</body>

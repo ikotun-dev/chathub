@@ -12,3 +12,8 @@ class Message(models.Model):
     date = models.DateTimeField(default=datetime.now, blank=True)
     user = models.CharField(max_length=10000)
     room = models.CharField(max_length=1000)
+
+class User(models.Model):
+    username = models.CharField(max_length=50)
+    password = models.CharField(max_length=20)
+    

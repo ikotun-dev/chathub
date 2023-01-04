@@ -1,9 +1,36 @@
 
 from django.shortcuts import render, redirect
-from chat.models import Room, Message
+from chat.models import Room, Message, User
 from django.http import HttpResponse, JsonResponse
 
 # Create your views here.
+def login(request):
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = User.objects.filter(username=username, password=password)
+        if user.count() >0:
+            return render(request, 'home.html')
+
+    return render(request, 'login.html')
+
+def register(request):
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = User.objects.filter(username=username, password=password)
+        if user.count() >0 :
+            return HttpResponse('User Exists already')
+        
+        else :
+            new_user = User(username = username, password=password)
+            new_user.save()
+
+            return render(request, 'login.html')
+            
+    return render(request, 'signup.html')
 def home(request):
     return render(request, 'home.html')
 
